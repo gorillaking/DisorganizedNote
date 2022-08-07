@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.disorganizednotes.NotesFragment">
+    <item
+        android:id="@+id/action_edit_delete"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_delete_24"
+        android:orderInCategory="100"
+        android:title="@string/action_delete"
+        android:visible="true"
+        app:showAsAction="ifRoom" />
+</menu>

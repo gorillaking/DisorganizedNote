@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/NotesFragment">
+
+    <fragment
+        android:id="@+id/NotesFragment"
+        android:name="com.example.disorganizednotes.NotesFragment"
+        android:label="@string/notes_fragment_label"
+        tools:layout="@layout/fragment_notes">
+
+        <action
+            android:id="@+id/action_NotesFragment_to_EditFragment"
+            app:destination="@id/EditFragment" />
+        <action
+            android:id="@+id/action_NotesFragment_to_archivedNotesFragment"
+            app:destination="@id/archivedNotesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/EditFragment"
+        android:name="com.example.disorganizednotes.EditFragment"
+        android:label="@string/edit_fragment_label"
+        tools:layout="@layout/fragment_edit">
+
+        <action
+            android:id="@+id/action_EditFragment_to_NotesFragment"
+            app:destination="@id/NotesFragment" />
+        <argument
+            android:name="notePosition"
+            android:defaultValue="-1"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/archivedNotesFragment"
+        android:name="com.example.disorganizednotes.ArchivedNotesFragment"
+        android:label="@string/archived_notes_fragment_label"
+        tools:layout="@layout/fragment_archived_notes" >
+        <action
+            android:id="@+id/action_archivedNotesFragment_to_NotesFragment"
+            app:destination="@id/NotesFragment" />
+        <action
+            android:id="@+id/action_archivedNotesFragment_to_archivedNoteViewFragment"
+            app:destination="@id/archivedNoteViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/archivedNoteViewFragment"
+        android:name="com.example.disorganizednotes.ArchivedNoteViewFragment"
+        android:label="@string/archived_notes_view_fragment_label"
+        tools:layout="@layout/fragment_archived_note_view" >
+        <action
+            android:id="@+id/action_archivedNoteViewFragment_to_archivedNotesFragment"
+            app:destination="@id/archivedNotesFragment" />
+        <argument
+            android:name="notePosition"
+            app:argType="integer" />
+    </fragment>
+</navigation>
